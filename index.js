@@ -89,7 +89,7 @@ for (let key in circle3){
     console.log(key, circle3[key]);
 } */
 
-//adding and accessing properties dynamically
+//privat vs public properties and methods
 function Circle(radius){
     this.rad = radius;
     //this.defLocation = {x:0, y:0};
