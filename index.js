@@ -64,8 +64,8 @@ increase(obj);
 console.log(obj.value); */
 
 
-//adding properties on a fly and dynamically access them
-function Circle(radius){
+//adding and accessing properties dynamically
+/* function Circle(radius){
     this.rad = radius,
     this.draw = function(){
         console.log('draw ' + this.rad + ' radius');
@@ -81,10 +81,28 @@ circle3['location'] = {x: 2};
 console.log(circle3.location.x);
 
 
-/* for (let key in circle3){
+for (let key in circle3){
     console.log(key, circle3[key]);
-}*/
+}
 for (let key in circle3){
     if (typeof circle3[key] !== 'function')
     console.log(key, circle3[key]);
+} */
+
+//adding and accessing properties dynamically
+function Circle(radius){
+    this.rad = radius;
+    //this.defLocation = {x:0, y:0};
+    let defLocation = {x:0, y:0};
+    let computeOptimalLocation = function(factor){
+        console.log(defLocation.x + factor, defLocation.y + factor);
+    }
+    this.draw = function(){
+        this.computeOptimalLocation(factor);
+        console.log('draw ' + this.rad + ' radius');
+    }
 }
+
+const circle4 = new Circle(10);
+//console.log(circle4.defLocation);
+//circle4.computeOptimalLocation(1);
