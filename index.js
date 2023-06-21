@@ -52,11 +52,39 @@ console.log('a =', a.value, ' b =', b.value); */
 function increase(x){ return ++x };
 let newNum = increase(num);
 console.log(newNum); */
+
 /* let number = 10;
 function increase(number){ number++ };
 increase(number);
 console.log(number); */
+
 /* let obj = {value: 10};
 function increase(obj){ obj.value++ };
 increase(obj);
 console.log(obj.value); */
+
+
+//adding properties on a fly and dynamically access them
+function Circle(radius){
+    this.rad = radius,
+    this.draw = function(){
+        console.log('draw ' + this.rad + ' radius');
+    }
+}
+
+const circle3 = new Circle(1);
+circle3.draw();
+
+circle3.location = {x: 1};
+circle3['location'] = {x: 2};
+
+console.log(circle3.location.x);
+
+
+/* for (let key in circle3){
+    console.log(key, circle3[key]);
+}*/
+for (let key in circle3){
+    if (typeof circle3[key] !== 'function')
+    console.log(key, circle3[key]);
+}
