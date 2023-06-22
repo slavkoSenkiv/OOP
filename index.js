@@ -124,7 +124,7 @@ const circle5 = new Circle1(10);
 console.log(circle5.getDefLocation()); */
 
 //variant 2
-function Circle2(radius){
+/* function Circle2(radius){
     this.rad = radius;
     let defLocation = { x: 0, y: 0 };
     this.draw = function(){
@@ -146,4 +146,61 @@ circle6.draw();
 console.log('location before assigment', circle6.defLocation);
 circle6.defLocation = 1;
 console.log('location after assigment', circle6.defLocation);
-circle6.draw();
+circle6.draw(); */
+
+//stopwatch excercise
+
+function Stopwatch(){
+    let startTime = 0;
+    let duration = 0;
+    let running = false;
+
+
+    this.start = function(){
+        if(running){
+            console.log('stopwatch is running already');
+        }
+
+        console.log('stopwatch starting');
+        startTime = Date.now();
+        running = true;
+        console.log('stopwatch started');
+    }
+
+
+    this.stop = function(){
+
+        if(!running){
+            console.log('stopwatch is stopped already');
+        }
+
+        console.log('stopwatch stopping');
+        let endTime = Date.now();
+        duration += endTime - startTime;
+        running = false;
+        console.log('stopwatch stopped');
+    }
+
+
+    this.reset = function(){
+        console.log('stopwatch reseting');
+        duration = 0;
+        startTime = 0;
+        running = false;
+    }
+
+
+    this.result = function(){
+        console.log('the result is ', duration, 'duration');
+    }
+}
+
+
+
+const sw = new Stopwatch();
+/* 
+sw.start();const sw = new Stopwatch();
+sw.start();
+const delay = 2_000;
+setTimeout(()=>{sw.stop()}, delay);
+setTimeout(()=>{sw.result()}, delay+1); */
