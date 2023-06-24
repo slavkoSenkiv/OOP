@@ -1,20 +1,19 @@
-const userOne = {
-    mail: 'slav.senkiv@gmail.com',
-    name: 'slav',
+class User {
+    constructor(email, name){
+        this.email = email;
+        this.name = name;
+    }
     login(){
-        console.log(this.mail, 'has logged in');
-    },
+        console.log(this.email, 'just logged in');
+    }
     logout(){
-        console.log(this.mail, 'has logged out');
+        console.log(this.email, 'just logged out');
     }
 }
 
-console.log(userOne.mail);
-console.log(userOne.name);
-userOne.login();
-userOne.logout();
+const user1 = new User('slav@gmail', 'Slav');
+const user2 = new User('pit@gmail', 'Pit');
 
-userOne.name = 'Pit';
-console.log(userOne.name);
-const prop = 'name'
-console.log(userOne[prop]);
+console.log(user1.name, user2.name);
+user1.login();
+user2.logout();
